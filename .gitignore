@@ -1,0 +1,14 @@
+# Ignore the whatsapp_data folder and its contents
+whatsapp_data/
+
+# Ignore the whatsapp_monitor_data folder and its contents
+whatsapp_monitor_data/
+
+# Ignore Python virtual environment (if any)
+venv/
+
+# Ignore other temporary or log files
+*.log
+*.pyc
+__pycache__/
+playwright/.cache/
