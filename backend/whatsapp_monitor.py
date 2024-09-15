@@ -79,7 +79,7 @@ async def whatsapp_monitor():
                     if not message_exists:
                         # Store the new message and timestamp
                         await sync_to_async(PerformanceMarketingGroupMessaages.objects.create)(message=message_text, timestamp=timestamp_text)
-                        print(f"Stored new message: {message_text} at {timestamp_text}")
+                        # print(f"Stored new message: {message_text} at {timestamp_text}")
 
                         # Make GET request to the API with the message received
                         url = f"https://marketingapi.mim-essay.com/api/marketingchatapp/process-user-message?command={message_text}"
