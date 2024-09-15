@@ -23,7 +23,8 @@ def playwright_worker():
 
         time.sleep(15)
         # Take a screenshot after the page is fully loaded
-        page.screenshot(path="whatsapp_screenshot_1.png")
+        page.screenshot(path="whatsapp_screenshot_2.png")
+        print("Playwright monitor session started and running and took ss2.")
 
         time.sleep(120)
 
