@@ -5,6 +5,7 @@ from playwright.async_api import async_playwright
 import os
 from backend.models import PerformanceMarketingGroupMessaages
 from asgiref.sync import sync_to_async
+import time
 
 async def whatsapp_monitor():
     async with async_playwright() as playwright:
@@ -20,10 +21,14 @@ async def whatsapp_monitor():
         await page.goto("https://web.whatsapp.com/")
         print("Playwright monitor browser started and running.")
         
-        
+
+        time.sleep(15)
         # Take a screenshot after the page is fully loaded
-        await page.screenshot(path="whatsapp_screenshot.png")
+        await page.screenshot(path="whatsapp_screenshot_1.png")
         print("Screenshot taken and saved as 'whatsapp_screenshot.png'")
+
+        time.sleep(120)
+
 
         # Step 1: Wait for the "New Chat" button to be visible after the page reload
         new_chat_button_selector = "xpath=/html/body/div[1]/div/div/div[2]/div[3]/header/header/div/span/div/span/div[1]/div/span"

@@ -1,11 +1,13 @@
 import threading
 from playwright.sync_api import sync_playwright
 import os
+import time
 from queue import Queue
 
 # Create a global thread-safe task queue
 task_queue = Queue()
 result_queue = Queue()  # Queue to send results back
+
 
 def playwright_worker():
     with sync_playwright() as playwright:
@@ -18,6 +20,12 @@ def playwright_worker():
         page = browser.new_page()
         page.goto("https://web.whatsapp.com/")
         print("Playwright browser started and running in a separate thread.")
+
+        time.sleep(15)
+        # Take a screenshot after the page is fully loaded
+        page.screenshot(path="whatsapp_screenshot_1.png")
+
+        time.sleep(120)
 
         # def check_for_new_messages():
         #     try:
