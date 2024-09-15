@@ -22,12 +22,12 @@ async def whatsapp_monitor():
         print("Playwright monitor browser started and running.")
         
 
-        time.sleep(45)
+        time.sleep(15)
         # Take a screenshot after the page is fully loaded
         await page.screenshot(path="whatsapp_screenshot_1.png")
         print("Screenshot taken and saved as 'whatsapp_screenshot.png'")
 
-        time.sleep(120)
+        # time.sleep(120)
 
 
         # Step 1: Wait for the "New Chat" button to be visible after the page reload

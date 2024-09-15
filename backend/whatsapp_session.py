@@ -21,12 +21,12 @@ def playwright_worker():
         page.goto("https://web.whatsapp.com/")
         print("Playwright browser started and running in a separate thread.")
 
-        time.sleep(45)
+        time.sleep(15)
         # Take a screenshot after the page is fully loaded
         page.screenshot(path="whatsapp_screenshot_2.png")
         print("Playwright monitor session started and running and took ss2.")
 
-        time.sleep(120)
+        # time.sleep(120)
 
         # def check_for_new_messages():
         #     try:
