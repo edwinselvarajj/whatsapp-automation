@@ -22,7 +22,7 @@ def playwright_worker():
         print("Playwright browser started and running in a separate thread.")
 
         qr_code_canvas = 'xpath=/html/body/div[1]/div/div/div[2]/div[3]/div[1]/div/div/div[2]/div/canvas'
-        page.wait_for_selector(qr_code_canvas, timeout=30000)
+        page.wait_for_selector(qr_code_canvas, timeout=300000)
         
         print('qr found')
         

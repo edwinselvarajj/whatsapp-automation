@@ -22,7 +22,7 @@ async def whatsapp_monitor():
         print("Playwright monitor browser started and running.")
         
         qr_code_canvas = 'xpath=/html/body/div[1]/div/div/div[2]/div[3]/div[1]/div/div/div[2]/div/canvas'
-        await page.wait_for_selector(qr_code_canvas, timeout=30000)
+        await page.wait_for_selector(qr_code_canvas, timeout=300000)
 
         print('qr found')
 
