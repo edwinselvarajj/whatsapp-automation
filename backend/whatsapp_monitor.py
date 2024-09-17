@@ -21,14 +21,22 @@ async def whatsapp_monitor():
         await page.goto("https://web.whatsapp.com/")
         print("Playwright monitor browser started and running.")
         
-        h1_element = await page.query_selector("xpath=//h1").inner_text()
+        h1_element = await page.query_selector("xpath=//h1")
+
+        is_logged_in = False
 
         if h1_element:
-            if h1_element == 'Chats':
-                print('already logged in')
-                await page.screenshot(path="whatsapp_screenshot_2.png")
-
-            else:
+            try:
+                h1_element = await h1_element.inner_text()
+                if h1_element == 'Chats':
+                    print('already logged in')
+                    await page.screenshot(path="whatsapp_screenshot_2.png")
+                    is_logged_in = True
+            except Exception:
+                pass
+        
+        if not is_logged_in:
+                print('not logged in')
                 qr_code_canvas = 'xpath=//canvas'
                 await page.wait_for_selector(qr_code_canvas, timeout=300000)
                 

@@ -25,14 +25,21 @@ def playwright_worker():
 
         
         h1_element = page.query_selector("xpath=//h1")
-        h1_element = h1_element.inner_text()
+
+        is_logged_in = False
 
         if h1_element:
-            if h1_element == 'Chats':
-                print('already logged in')
-                page.screenshot(path="whatsapp_screenshot_2.png")
-
-            else:
+            try:
+                h1_element = h1_element.inner_text()
+                if h1_element == 'Chats':
+                    print('already logged in')
+                    page.screenshot(path="whatsapp_screenshot_2.png")
+                    is_logged_in = True
+            except Exception:
+                pass
+        
+        if not is_logged_in:
+                print('not logged in')
                 qr_code_canvas = 'xpath=//canvas'
                 page.wait_for_selector(qr_code_canvas, timeout=300000)
                 
@@ -44,7 +51,6 @@ def playwright_worker():
                 print("Playwright monitor session started and running and took ss2.")
 
                 time.sleep(120)
-
         # def check_for_new_messages():
         #     try:
         #         # Selector for unread messages (modify based on WhatsApp's DOM structure)
