@@ -21,7 +21,12 @@ async def whatsapp_monitor():
         await page.goto("https://web.whatsapp.com/")
         print("Playwright monitor browser started and running.")
         
+        qr_code_canvas = 'xpath=/html/body/div[1]/div/div/div[2]/div[3]/div[1]/div/div/div[2]/div/canvas'
+        await page.wait_for_selector(qr_code_canvas, timeout=30000)
 
+        print('qr found')
+
+        time.sleep(6)
         # time.sleep(30)
         # # Take a screenshot after the page is fully loaded
         # await page.screenshot(path="whatsapp_screenshot_1.png")
