@@ -32,7 +32,7 @@ async def whatsapp_monitor():
         # await page.screenshot(path="whatsapp_screenshot_1.png")
         # print("Screenshot taken and saved as 'whatsapp_screenshot_1.png'")
 
-        time.sleep(120)
+        # time.sleep(120)
         await page.screenshot(path="whatsapp_screenshot_1.png")
         print("Screenshot taken and saved as 'whatsapp_screenshot_1.png again'")
 
