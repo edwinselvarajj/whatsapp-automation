@@ -12,7 +12,7 @@ async def whatsapp_monitor():
         # Start a second browser in persistent context for monitoring
         browser = await playwright.chromium.launch_persistent_context(
             user_data_dir=os.path.join(os.getcwd(), "whatsapp_monitor_data"),  # Separate data directory
-            headless=False,
+            headless=True,
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
         )
         page = await browser.new_page()
