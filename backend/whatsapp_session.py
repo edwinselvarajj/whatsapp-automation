@@ -21,17 +21,28 @@ def playwright_worker():
         page.goto("https://web.whatsapp.com/")
         print("Playwright browser started and running in a separate thread.")
 
-        qr_code_canvas = 'xpath=//canvas'
-        page.wait_for_selector(qr_code_canvas, timeout=300000)
-        
-        print('qr found')
-        
-        time.sleep(6)
-        # Take a screenshot after the page is fully loaded
-        page.screenshot(path="whatsapp_screenshot_2.png")
-        print("Playwright monitor session started and running and took ss2.")
+        time.sleep(15)
 
-        time.sleep(120)
+        
+        h1_element = page.query_selector("xpath=//h1").inner_text()
+
+        if h1_element:
+            if h1_element == 'Chats':
+                print('already logged in')
+                page.screenshot(path="whatsapp_screenshot_2.png")
+
+            else:
+                qr_code_canvas = 'xpath=//canvas'
+                page.wait_for_selector(qr_code_canvas, timeout=300000)
+                
+                print('qr found')
+                
+                time.sleep(6)
+                # Take a screenshot after the page is fully loaded
+                page.screenshot(path="whatsapp_screenshot_2.png")
+                print("Playwright monitor session started and running and took ss2.")
+
+                time.sleep(120)
 
         # def check_for_new_messages():
         #     try:

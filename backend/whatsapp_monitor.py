@@ -21,22 +21,37 @@ async def whatsapp_monitor():
         await page.goto("https://web.whatsapp.com/")
         print("Playwright monitor browser started and running.")
         
-        qr_code_canvas = 'xpath=//canvas'
-        await page.wait_for_selector(qr_code_canvas, timeout=300000)
+        h1_element = await page.query_selector("xpath=//h1").inner_text()
 
-        print('qr found')
+        if h1_element:
+            if h1_element == 'Chats':
+                print('already logged in')
+                await page.screenshot(path="whatsapp_screenshot_2.png")
 
-        time.sleep(6)
-        # time.sleep(30)
-        # # Take a screenshot after the page is fully loaded
+            else:
+                qr_code_canvas = 'xpath=//canvas'
+                await page.wait_for_selector(qr_code_canvas, timeout=300000)
+                
+                print('qr found')
+                
+                time.sleep(6)
+                # Take a screenshot after the page is fully loaded
+                await page.screenshot(path="whatsapp_screenshot_2.png")
+                print("Playwright monitor session started and running and took ss2.")
+
+                time.sleep(120)
+
+        # time.sleep(6)
+        # # time.sleep(30)
+        # # # Take a screenshot after the page is fully loaded
+        # # await page.screenshot(path="whatsapp_screenshot_1.png")
+        # # print("Screenshot taken and saved as 'whatsapp_screenshot_1.png'")
+
+        # # time.sleep(120)
         # await page.screenshot(path="whatsapp_screenshot_1.png")
-        # print("Screenshot taken and saved as 'whatsapp_screenshot_1.png'")
+        # print("Screenshot taken and saved as 'whatsapp_screenshot_1.png again'")
 
         # time.sleep(120)
-        await page.screenshot(path="whatsapp_screenshot_1.png")
-        print("Screenshot taken and saved as 'whatsapp_screenshot_1.png again'")
-
-        time.sleep(120)
 
 
         # Step 1: Wait for the "New Chat" button to be visible after the page reload
