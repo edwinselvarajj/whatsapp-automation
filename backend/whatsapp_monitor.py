@@ -22,10 +22,14 @@ async def whatsapp_monitor():
         print("Playwright monitor browser started and running.")
         
 
-        time.sleep(30)
-        # Take a screenshot after the page is fully loaded
+        # time.sleep(30)
+        # # Take a screenshot after the page is fully loaded
+        # await page.screenshot(path="whatsapp_screenshot_1.png")
+        # print("Screenshot taken and saved as 'whatsapp_screenshot_1.png'")
+
+        time.sleep(120)
         await page.screenshot(path="whatsapp_screenshot_1.png")
-        print("Screenshot taken and saved as 'whatsapp_screenshot.png'")
+        print("Screenshot taken and saved as 'whatsapp_screenshot_1.png again'")
 
         time.sleep(120)
 
