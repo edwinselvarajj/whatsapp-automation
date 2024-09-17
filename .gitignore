@@ -12,3 +12,4 @@ venv/
 *.pyc
 __pycache__/
 playwright/.cache/
+db.sqlite3
