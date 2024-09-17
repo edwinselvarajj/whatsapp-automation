@@ -24,7 +24,8 @@ def playwright_worker():
         time.sleep(15)
 
         
-        h1_element = page.query_selector("xpath=//h1").inner_text()
+        h1_element = page.query_selector("xpath=//h1")
+        h1_element = h1_element.inner_text()
 
         if h1_element:
             if h1_element == 'Chats':
