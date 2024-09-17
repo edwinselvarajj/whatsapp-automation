@@ -12,7 +12,7 @@ async def whatsapp_monitor():
         # Start a second browser in persistent context for monitoring
         browser = await playwright.chromium.launch_persistent_context(
             user_data_dir=os.path.join(os.getcwd(), "whatsapp_monitor_data"),  # Separate data directory
-            headless=True,
+            headless=False,
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
         )
         page = await browser.new_page()
@@ -22,16 +22,16 @@ async def whatsapp_monitor():
         print("Playwright monitor browser started and running.")
         
 
-        time.sleep(15)
+        time.sleep(20)
         # Take a screenshot after the page is fully loaded
         await page.screenshot(path="whatsapp_screenshot_1.png")
         print("Screenshot taken and saved as 'whatsapp_screenshot.png'")
 
-        # time.sleep(120)
+        time.sleep(120)
 
 
         # Step 1: Wait for the "New Chat" button to be visible after the page reload
-        new_chat_button_selector = "xpath=/html/body/div[1]/div/div/div[2]/div[3]/header/header/div/span/div/span/div[1]/div/span"
+        new_chat_button_selector = 'xpath=/html/body/div[1]/div/div/div[2]/div[3]/header/header/div/span/div/span/div[1]/div/span'
         await page.wait_for_selector(new_chat_button_selector, timeout=10000)
         if await page.is_visible(new_chat_button_selector):
             await page.click(new_chat_button_selector)
