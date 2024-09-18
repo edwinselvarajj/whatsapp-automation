@@ -23,7 +23,6 @@ def playwright_worker():
 
         time.sleep(15)
 
-        
         h1_element = page.query_selector("xpath=//h1")
 
         is_logged_in = False

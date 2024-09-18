@@ -21,6 +21,7 @@ async def whatsapp_monitor():
         await page.goto("https://web.whatsapp.com/")
         print("Playwright monitor browser started and running.")
         
+        time.sleep(10)
         h1_element = await page.query_selector("xpath=//h1")
 
         is_logged_in = False
