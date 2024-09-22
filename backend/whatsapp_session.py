@@ -49,24 +49,17 @@ def playwright_worker():
                 page.screenshot(path="whatsapp_screenshot_2.png")
                 print("Playwright monitor session started and running and took ss2.")
 
-                time.sleep(120)
-        # def check_for_new_messages():
-        #     try:
-        #         # Selector for unread messages (modify based on WhatsApp's DOM structure)
-        #         unread_message_selector = "xpath=//span[contains(@aria-label, 'unread message')]"
-        #         new_messages = page.query_selector_all(unread_message_selector)
-                
-        #         if new_messages:
-        #             for message in new_messages:
-        #                 # Get the contact name and message content
-        #                 contact_name = message.evaluate('el => el.closest("[data-testid=cell-frame-title]").innerText')
-        #                 last_message = message.evaluate('el => el.closest("[data-testid=last-msg-status]").innerText')
-                        
-        #                 # Print the contact name and message
-        #                 print(f"New message from {contact_name}: {last_message}")
-
-        #     except Exception as e:
-        #         print(f"Error checking for new messages: {e}")
+                while not is_logged_in:
+                    try:
+                        h1_element = h1_element.inner_text()
+                        if h1_element == 'Chats':
+                            print('already logged in')
+                            page.screenshot(path="whatsapp_screenshot_1.png")
+                            is_logged_in = True
+                            time.sleep(5)
+                    except Exception:
+                        pass
+    
         
         while True:
             task = task_queue.get()  # Wait for tasks to be added to the queue
