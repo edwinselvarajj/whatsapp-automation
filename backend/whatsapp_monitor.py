@@ -6,6 +6,8 @@ import os
 from backend.models import PerformanceMarketingGroupMessaages
 from asgiref.sync import sync_to_async
 import time
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 async def whatsapp_monitor():
     async with async_playwright() as playwright:
@@ -41,6 +43,10 @@ async def whatsapp_monitor():
                 time.sleep(10)
                 await page.screenshot(path="whatsapp_screenshot_monitor.png")
                 print('took ss monitor')
+
+                time.sleep(10)
+                await page.screenshot(path="whatsapp_screenshot_monitor.png")
+                print('took another ss')
                 qr_code_canvas = 'xpath=//canvas'
                 await page.wait_for_selector(qr_code_canvas, timeout=300000)
                 

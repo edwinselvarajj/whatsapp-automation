@@ -4,6 +4,7 @@ import os
 import time
 from queue import Queue
 
+
 # Create a global thread-safe task queue
 task_queue = Queue()
 result_queue = Queue()  # Queue to send results back
