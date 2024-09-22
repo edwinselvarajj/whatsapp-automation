@@ -244,7 +244,8 @@ async def whatsapp_monitor():
                         # print(f"Message already exists: {message_text} at {timestamp_text}")
                         None
                 else:
-                    print("Message or timestamp not found.")
+                    None
+                    # print("Message or timestamp not found.")
             except Exception as e:
                 print(f"Error fetching unread messages: {e}")
 
