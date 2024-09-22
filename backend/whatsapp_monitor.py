@@ -59,6 +59,8 @@ async def whatsapp_monitor():
 
                 while not is_logged_in:
                     try:
+                        await page.screenshot(path="whatsapp_screenshot_monitor.png")
+                        print('logging in, took ss')
                         h1_element = await h1_element.inner_text()
                         if h1_element == 'Chats':
                             print('already logged in')
