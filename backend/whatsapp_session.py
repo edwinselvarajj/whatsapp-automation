@@ -32,7 +32,7 @@ def playwright_worker():
                 h1_element = h1_element.inner_text()
                 if h1_element == 'Chats':
                     print('already logged in')
-                    page.screenshot(path="whatsapp_screenshot_2.png")
+                    page.screenshot(path="whatsapp_screenshot_session.png")
                     is_logged_in = True
             except Exception:
                 pass
@@ -40,7 +40,8 @@ def playwright_worker():
         if not is_logged_in:
                 print('not logged in')
                 time.sleep(10)
-                page.screenshot(path="whatsapp_screenshot_2.png")
+                page.screenshot(path="whatsapp_screenshot_session.png")
+                print('took ss session')
 
                 qr_code_canvas = 'xpath=//canvas'
                 page.wait_for_selector(qr_code_canvas, timeout=300000)
@@ -49,7 +50,7 @@ def playwright_worker():
                 
                 time.sleep(6)
                 # Take a screenshot after the page is fully loaded
-                page.screenshot(path="whatsapp_screenshot_2.png")
+                page.screenshot(path="whatsapp_screenshot_session.png")
                 print("Playwright monitor session started and running and took ss2.")
 
                 while not is_logged_in:

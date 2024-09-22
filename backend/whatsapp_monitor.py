@@ -31,7 +31,7 @@ async def whatsapp_monitor():
                 h1_element = await h1_element.inner_text()
                 if h1_element == 'Chats':
                     print('already logged in')
-                    await page.screenshot(path="whatsapp_screenshot_2.png")
+                    await page.screenshot(path="whatsapp_screenshot_monitor.png")
                     is_logged_in = True
             except Exception:
                 pass
@@ -39,8 +39,8 @@ async def whatsapp_monitor():
         if not is_logged_in:
                 print('not logged in')
                 time.sleep(10)
-                await page.screenshot(path="whatsapp_screenshot_2.png")
-
+                await page.screenshot(path="whatsapp_screenshot_monitor.png")
+                print('took ss monitor')
                 qr_code_canvas = 'xpath=//canvas'
                 await page.wait_for_selector(qr_code_canvas, timeout=300000)
                 
@@ -48,7 +48,7 @@ async def whatsapp_monitor():
                 
                 time.sleep(6)
                 # Take a screenshot after the page is fully loaded
-                await page.screenshot(path="whatsapp_screenshot_2.png")
+                await page.screenshot(path="whatsapp_screenshot_monitor.png")
                 print("Playwright monitor session started and running and took ss2.")
 
                 while not is_logged_in:
@@ -56,7 +56,7 @@ async def whatsapp_monitor():
                         h1_element = await h1_element.inner_text()
                         if h1_element == 'Chats':
                             print('already logged in')
-                            await page.screenshot(path="whatsapp_screenshot_2.png")
+                            await page.screenshot(path="whatsapp_screenshot_monitor.png")
                             is_logged_in = True
                             time.sleep(5)
                     except Exception:
