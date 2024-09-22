@@ -44,7 +44,7 @@ async def whatsapp_monitor():
                 await page.screenshot(path="whatsapp_screenshot_monitor.png")
                 print('took ss monitor')
 
-                time.sleep(10)
+                time.sleep(60)
                 await page.screenshot(path="whatsapp_screenshot_monitor.png")
                 print('took another ss')
                 qr_code_canvas = 'xpath=//canvas'
