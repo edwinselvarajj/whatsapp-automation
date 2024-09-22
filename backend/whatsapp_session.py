@@ -39,6 +39,7 @@ def playwright_worker():
         
         if not is_logged_in:
                 print('not logged in')
+                time.sleep(10)
                 page.screenshot(path="whatsapp_screenshot_2.png")
 
                 qr_code_canvas = 'xpath=//canvas'
