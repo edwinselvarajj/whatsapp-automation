@@ -145,7 +145,7 @@ def playwright_worker():
             elif task['command'] == "stop":
                 break  # Stop the thread safely
 
-# Start Playwright worker thread
-playwright_thread = threading.Thread(target=playwright_worker)
-playwright_thread.daemon = True  # This ensures the thread stops when the main program exits
-playwright_thread.start()
+# # Start Playwright worker thread
+# playwright_thread = threading.Thread(target=playwright_worker)
+# playwright_thread.daemon = True  # This ensures the thread stops when the main program exits
+# playwright_thread.start()
