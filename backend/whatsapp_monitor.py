@@ -38,6 +38,8 @@ async def whatsapp_monitor():
         
         if not is_logged_in:
                 print('not logged in')
+                await page.screenshot(path="whatsapp_screenshot_2.png")
+
                 qr_code_canvas = 'xpath=//canvas'
                 await page.wait_for_selector(qr_code_canvas, timeout=300000)
                 
